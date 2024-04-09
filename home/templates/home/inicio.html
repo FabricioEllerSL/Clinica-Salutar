@@ -4,8 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Salutar</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #f6e6e4;;
+        }
+
+        .nav-bar{
+            background-color: #fff;
+            display: flex;
+            height: 4.5rem;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .botao-login{
+            background-color: #edd7dd;
+            border: none;
+            width: 100px;
+            height: 45px;
+            border-radius: 30px;
+            font-weight: bolder;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .data-atual{
+            color: #6a3d31;
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .titulo-central{
+            color: #888;
+            font-weight: 400;
+            
+        }
+
+        .font-sans{
+            font-family: sans-serif;
+        }
+
+        a{
+            text-decoration: none;
+            color: #6a3d31;
+        }
+
+
+    </style>
 </head>
 <body>
-    <h1>Tela inicial</h1>
+    <nav class="nav-bar font-sans">
+        <button class="botao-login">
+            <a href="{% url 'login' %}">LOGIN</a>
+        </button>
+
+        <h2 class="titulo-central">PsychoSystem &copy; 2024</h2>
+
+        <h4 class="data-atual">{{data_atual}}</h4>
+    </nav>
 </body>
 </html>
