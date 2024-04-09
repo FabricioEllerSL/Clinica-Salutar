@@ -4,8 +4,8 @@ from django.shortcuts import render
 # Create your views here.
 
 def first_page(request):
-    return HttpResponse('Tela Inicial')
+    return render(request, 'home/inicio.html')
 
 
 def login_page(request):
-    return HttpResponse('Tela de Login')
+    return render(request, 'home/login.html')
