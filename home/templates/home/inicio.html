@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,80 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Salutar</title>
 
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        body{
-            background-color: #f6e6e4;;
-        }
+    <!-- Fonte do nome da empresa -->
+    {% include 'partials/font.html' %}
 
-        .nav-bar{
-            background-color: #fff;
-            display: flex;
-            height: 4.5rem;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-        }
+    <!-- CSS da pagina home -->
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
 
-        .botao-login{
-            background-color: #edd7dd;
-            border: none;
-            width: 100px;
-            height: 45px;
-            border-radius: 30px;
-            font-weight: bolder;
-            font-size: 15px;
-            color: #555;
-        }
-
-        .data-atual{
-            color: #6a3d31;
-            font-size: 25px;
-            font-weight: 500;
-        }
-
-        .titulo-central{
-            color: #888;
-            font-weight: 400;
-            
-        }
-
-        .font-sans{
-            font-family: sans-serif;
-        }
-
-        a{
-            text-decoration: none;
-            color: #6a3d31;
-        }
-
-        .sliced{
-            width: 50%;
-            height: 400px;
-            background-color: #edd7dd;
-            text-align: center;
-            padding-top: 50px;
-        }
-
-        main{
-            display: flex;
-        }
-
-        .nome-empresa{
-            font-size: 100px;
-        }
-
-        .nome-empresa img{
-            height: 50px;
-        }
-
-
-    </style>
 </head>
 <body>
+
+    <!-- Barra de navegacao -->
     <nav class="nav-bar font-sans">
         <button class="botao-login">
             <a href="{% url 'login' %}">LOGIN</a>
@@ -89,14 +27,15 @@
         <h4 class="data-atual">{{data_atual}}</h4>
     </nav>
 
+    <!-- Continuacao da pagina -->
     <main>
         <div class="sliced">
             <h2 class="nome-empresa font-sans" style="color: #913132;">Salutar</h2>
-            <h2 class="nome-empresa font-sans" style="color: #5b442f; margin-left: 50px;">Clinica <img src="https://img.freepik.com/vetores-premium/projete-uma-proporcao-quadrada-de-moldura-de-madeira-de-1x1_925368-87.jpg" alt=""></h2>
+            <h2 class="nome-empresa font-sans" style="color: #5b442f; display: flex; justify-content: center; padding-left: 100px;">Clinica <img style="width: 130px; height: 130px;" src="{% static 'home/imagens/leaves.png' %}" alt=""></h2>
             <h3 class="font-sans" style="font-weight: 500; margin: 30px 0 0 30px;">Sistema de gerenciamento de informações</h3>
         </div>
         <div class="sliced">
-            <p>IMAGEM LOGO</p>
+            <img src="{% static 'home/imagens/candlestick.png' %}" alt="" style="width: 70%; height: 100%;">
         </div>
     </main>
 </body>
