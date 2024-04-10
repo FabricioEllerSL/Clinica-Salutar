@@ -1,3 +1,6 @@
+
+/* TELA HOME */
+
 *{
     margin: 0;
     padding: 0;
@@ -25,11 +28,13 @@ body{
     font-size: 15px;
     color: #555;
     cursor: pointer;
+    transition: 0.5s;
+
 }
 
 .botao-login:hover{
-    background-color: #b3a4a8;
-    border: 1px solid #6a3d31;
+    background-color: #bdacb0;
+    color: #fff;
 }
 
 .data-atual{
@@ -42,10 +47,6 @@ body{
     color: #888;
     font-weight: 400;
     
-}
-
-.font-sans{
-    font-family: sans-serif;
 }
 
 a{
@@ -67,8 +68,6 @@ main{
 
 .nome-empresa{
     font-size: 100px;
-    font-family: 'Lora';
-    font-weight: 500;
 }
 
 .nome-empresa img{

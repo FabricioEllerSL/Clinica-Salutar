@@ -1,11 +1,31 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica Salutar</title>
+
+    <!-- CSS da pagina login -->
+    <link rel="stylesheet" href="{% static 'home/css/loginstyle.css' %}">
+    
+    <!-- Fonte do nome da empresa -->
+    {% include 'partials/font.html' %}
+    
 </head>
 <body>
-    <h1>Tela de login</h1>
+    <nav class="nav-bar">
+        <a href="{% url 'home' %}">
+            <h1 style="font-family: 'Lora'; font-weight: 400; display: flex; color: #8b2627; font-size: 40px;">Salutar <p style="font-family: 'Lora'; color: #6a3d31; margin-left: 10px;">Clinica</p></h1>
+        </a>
+
+        <h2 class="titulo-central">PsychoSystem &copy; 2024</h2>
+
+        <h4 class="data-atual">{{data_atual}}</h4>
+    
+    </nav>
+
 </body>
 </html>

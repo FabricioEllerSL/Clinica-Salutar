@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #6a3d31;
+}
+
+body{
+    background-color: #f6e6e4;
+}
+
+.titulo-central{
+    color: #888;
+    font-weight: 400;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.data-atual{
+    color: #6a3d31;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #fff;
+
+}
