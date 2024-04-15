@@ -1,54 +1,28 @@
+{% extends 'base.html' %}
 {% load static %}
 
+{% block content %}
+<main>
+    <div class="sliced">
+        <form class="login-form" action="">
+            <h2 class="login-title">Login</h2>
+            <h4 class="login-subtitle">Entre para continuar</h4>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+            <div class="inputs-container">
+                <label class="input-element-title" for="Nome">NOME</label>
+                <input class="input-element" type="email" id="Nome" placeholder="XXXXXX XXXXXX">
+            </div>
+            <div class="inputs-container">
+                <label class="input-element-title" for="senha">SENHA</label>
+                <input class="input-element" type="password" id="senha">
+            </div>
 
-    <!-- CSS da pagina login -->
-    <link rel="stylesheet" href="{% static 'home/css/loginstyle.css' %}">
-    
-    <!-- Fonte do nome da empresa -->
-    {% include 'partials/font.html' %}
+            <input type="submit" class="login-button" value="Log In">
 
-</head>
-<body>
-    <nav class="nav-bar">
-        <a href="{% url 'home' %}">
-            <h1 style="font-family: 'Lora'; font-weight: 400; display: flex; color: #8b2627; font-size: 40px;">Salutar <p style="font-family: 'Lora'; color: #6a3d31; margin-left: 10px;">Clinica</p></h1>
-        </a>
-
-        <h2 class="titulo-central">PsychoSystem &copy; 2024</h2>
-
-        <h4 class="data-atual">{{data_atual}}</h4>
-    
-    </nav>
-
-    <main>
-        <div class="sliced">
-            <form class="login-form" action="">
-                <h2 class="login-title">Login</h2>
-                <h4 class="login-subtitle">Entre para continuar</h4>
-
-                <div class="inputs-container">
-                    <label class="input-element-title" for="Nome">NOME</label>
-                    <input class="input-element" type="email" id="Nome" placeholder="XXXXXX XXXXXX">
-                </div>
-                <div class="inputs-container">
-                    <label class="input-element-title" for="senha">SENHA</label>
-                    <input class="input-element" type="password" id="senha">
-                </div>
-
-                <input type="submit" class="login-button" value="Log In">
-
-            </form>
-        </div>
-        <div class="sliced">
-            <img src="{% static 'home/imagens/candlestick.png' %}" alt="" style="width: 70%; height: 100%;">
-        </div>
-    </main>
-</body>
-</html>
+        </form>
+    </div>
+    <div class="sliced">
+        <img src="{% static 'home/imagens/candlestick.png' %}" alt="" style="width: 70%; height: 100%;">
+    </div>
+</main>
+{% endblock content %}

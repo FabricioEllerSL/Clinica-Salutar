@@ -9,44 +9,34 @@ body{
     background-color: #f6e6e4;;
 }
 
-.nav-bar{
-    background-color: #fff;
+main{
     display: flex;
-    height: 4.5rem;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
 }
 
-.botao-login{
-    background-color: #edd7dd;
-    border: none;
-    width: 100px;
-    height: 45px;
-    border-radius: 30px;
-    font-weight: bolder;
-    font-size: 15px;
-    color: #555;
-    cursor: pointer;
-    transition: 0.5s;
-
+.subtitle-home{
+    font-weight: 500; 
+    margin: 30px 0 0 20px;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 
-.botao-login:hover{
-    background-color: #bdacb0;
+.login-button-home{
+    display: flex;
+    background-color: #d66666;
     color: #fff;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    height: 55px;
+    border-radius: 30px;
+    transition: 0.3s;
 }
 
-.data-atual{
-    color: #6a3d31;
-    font-size: 25px;
-    font-weight: 500;
-}
-
-.titulo-central{
-    color: #888;
-    font-weight: 400;
-    
+.login-button-home:hover{
+    background-color: #ff9b9b;
 }
 
 a{
@@ -62,14 +52,156 @@ a{
     padding-top: 50px;
 }
 
-main{
-    display: flex;
-}
-
 .nome-empresa{
     font-size: 100px;
 }
 
 .nome-empresa img{
     height: 50px;
+}
+
+
+/* PAGINA LOGIN */
+
+.login-form{
+    background-color: #fff;
+    padding-top: 25px;
+    width: 75%;
+    border-radius: 50px;
+    border: 3px solid #6a3d31;
+    margin: 0 auto;
+    margin-top: -30px;
+}
+
+.login-title{
+    font-family: sans-serif;
+    color: #6a3d31;
+    font-size: 50px;
+    font-weight: bolder;
+
+}
+
+.login-subtitle{
+    font-family: sans-serif;
+    font-weight: 500;
+    color: #888;
+}
+
+.inputs-container{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.input-element{
+    width: 75%;
+    margin: 0 auto;
+    height: 50px;
+    border: none;
+    background-color: #ddd;
+    padding: 5px 0 5px 20px;
+    border-radius: 10px;
+}
+
+.input-element-title{
+    text-align: left;
+    width: 75%;
+    margin: 0 auto;
+    font-family: sans-serif;
+    color: #999;
+    margin-bottom: 5px;
+
+}
+
+.login-button{
+    border: none;
+    background-color: #d66666;
+    width: 60%;
+    height: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.login-button:hover{
+    background-color: #923d3f;
+}
+
+
+/* PAGINA NAVEGACAO */
+
+.return-button{
+    background-color: #ffffff00;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+.welcome-text{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #6a3d31;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.click-text{
+    font-family: sans-serif;
+    color: #999;
+    font-weight: 500;
+    font-size: 18px;
+    width: 20%;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+/* MODULOS */
+
+.modules-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 8rem;
+}
+
+.module-card{
+    background-color: #fff;
+    width: 20%;
+    height: 13rem;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 6px solid #6a3d31;
+}
+
+.module-card img{
+    margin-top: -120px;
+    margin-bottom: 20px;
+}
+
+.module-card-title{
+    font-family: sans-serif;
+    color: #6a3d31;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.module-card-title:hover{
+    color: #c58a79 !important;
+    text-decoration: underline !important;
+}
+
+.module-card-description{
+    width: 80%;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
 }
