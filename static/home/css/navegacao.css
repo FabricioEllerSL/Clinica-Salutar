@@ -1,0 +1,47 @@
+*{
+    margin: 0 ;
+    padding: 0;
+}
+
+body{
+    background-color: #f6e6e4;
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #fff;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+.return-button{
+    background-color: #f6e6e4;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+}
+
+.welcome-text{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #6a3d31;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.click-text{
+    font-family: sans-serif;
+    color: #999;
+    font-weight: 500;
+    font-size: 18px;
+    width: 20%;
+    margin: 1rem auto;
+    text-align: center;
+}

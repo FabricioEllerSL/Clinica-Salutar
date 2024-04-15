@@ -12,3 +12,7 @@ def first_page(request):
 def login_page(request):
     data_atual = datetime.now().strftime('%d/%m/%Y')
     return render(request, 'home/login.html', {'data_atual': data_atual})
+
+
+def navigation_page(request):
+    return render(request, 'home/navegacao.html')

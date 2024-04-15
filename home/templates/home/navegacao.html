@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Salutar</title>
+    
+    
+    <!-- CSS da pagina navegacao -->
+    <link rel="stylesheet" href="{% static 'home/css/navegacao.css' %}">
+
+    <!-- Fonte do nome da empresa -->
+    {% include 'partials/font.html' %}
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="{% url 'home' %}">
+            <h1 style="font-family: 'Lora'; font-weight: 400; display: flex; color: #8b2627; font-size: 40px;">Salutar <p style="font-family: 'Lora'; color: #6a3d31; margin-left: 10px;">Clinica</p></h1>
+        </a>
+        <h2>Cargo</h2>
+    </nav>
+
+    <main>
+        
+        <div style="display: flex;">
+            <a href="{% url 'login' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
+            <h class="welcome-text">Olá, XXXXXXX!</h2>
+        </div>
+
+        <h5 class="click-text">clique em um dos módulos para acessar suas funções</h5>
+    </main>
+</body>
+</html>
