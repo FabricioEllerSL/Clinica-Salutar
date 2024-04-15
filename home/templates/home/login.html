@@ -13,7 +13,7 @@
     
     <!-- Fonte do nome da empresa -->
     {% include 'partials/font.html' %}
-    
+
 </head>
 <body>
     <nav class="nav-bar">
@@ -27,5 +27,28 @@
     
     </nav>
 
+    <main>
+        <div class="sliced">
+            <form class="login-form" action="">
+                <h2 class="login-title">Login</h2>
+                <h4 class="login-subtitle">Entre para continuar</h4>
+
+                <div class="inputs-container">
+                    <label class="input-element-title" for="Nome">NOME</label>
+                    <input class="input-element" type="email" id="Nome" placeholder="XXXXXX XXXXXX">
+                </div>
+                <div class="inputs-container">
+                    <label class="input-element-title" for="senha">SENHA</label>
+                    <input class="input-element" type="password" id="senha">
+                </div>
+
+                <input type="submit" class="login-button" value="Log In">
+
+            </form>
+        </div>
+        <div class="sliced">
+            <img src="{% static 'home/imagens/candlestick.png' %}" alt="" style="width: 70%; height: 100%;">
+        </div>
+    </main>
 </body>
 </html>
