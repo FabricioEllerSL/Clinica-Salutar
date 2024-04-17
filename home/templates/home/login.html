@@ -4,20 +4,20 @@
 {% block content %}
 <main>
     <div class="sliced">
-        <form class="login-form" action="">
+        <form class="login-form" action="{% url 'navegacao' %}">
             <h2 class="login-title">Login</h2>
             <h4 class="login-subtitle">Entre para continuar</h4>
 
             <div class="inputs-container">
                 <label class="input-element-title" for="Nome">NOME</label>
-                <input class="input-element" type="email" id="Nome" placeholder="XXXXXX XXXXXX">
+                <input class="input-element" type="text" id="Nome" placeholder="XXXXXX XXXXXX">
             </div>
             <div class="inputs-container">
                 <label class="input-element-title" for="senha">SENHA</label>
                 <input class="input-element" type="password" id="senha">
             </div>
 
-            <input type="submit" class="login-button" value="Log In">
+            <input type="submit" to="" class="login-button" value="Log In">
 
         </form>
     </div>
