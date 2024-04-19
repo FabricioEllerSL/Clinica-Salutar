@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    hello
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div style="display: flex;">
+    <a href="{% url 'home:login' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
+    <h class="welcome-text">PACIENTES</h2>
+</div>
+
+<main style="flex-direction: column;">
+    <form action="" method="GET" style="text-align: center;">
+        <input type="text" name="" id="" placeholder="Pesquisar Paciente...">
+    </form>
+    
+    <button>
+        Adicionar Paciente
+    </button>
+
+    <div class="mostrar-pacientes">
+        {% for paciente in pacientes %}
+        <h4>{{ paciente.nome }}</h4>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock content %}
