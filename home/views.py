@@ -7,14 +7,31 @@ from datetime import datetime
 data_atual = datetime.now().strftime('%d/%m/%Y')
 
 def first_page(request):
-    return render(request, 'home/inicio.html', {'data_atual': data_atual})
+    
+    context_ = {
+        'data_atual': data_atual,
+    }
+
+    return render(request, 'home/inicio.html', context_)
 
 
 def login_page(request):
     data_atual = datetime.now().strftime('%d/%m/%Y')
-    return render(request, 'home/login.html', {'data_atual': data_atual})
+
+    context_ = {
+        'data_atual': data_atual,
+        'page_title': 'Login -'
+    }
+
+    return render(request, 'home/login.html', context_)
 
 
 def navigation_page(request):
     data_atual = datetime.now().strftime('%d/%m/%Y')
-    return render(request, 'home/navegacao.html', {'data_atual': data_atual})
+
+    context_ = {
+        'data_atual': data_atual,
+        'page_title': 'Navegação -'
+    }
+
+    return render(request, 'home/navegacao.html', context_)
