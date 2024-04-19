@@ -20,7 +20,7 @@ def login_page(request):
 
     context_ = {
         'data_atual': data_atual,
-        'page_title': 'Login -'
+        'page_title': 'Login - '
     }
 
     return render(request, 'home/login.html', context_)
@@ -31,7 +31,7 @@ def navigation_page(request):
 
     context_ = {
         'data_atual': data_atual,
-        'page_title': 'Navegação -'
+        'page_title': 'Navegação - '
     }
 
     return render(request, 'home/navegacao.html', context_)
