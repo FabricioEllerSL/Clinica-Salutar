@@ -1,4 +1,5 @@
 from datetime import datetime
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from pacientes.models import Paciente
 
@@ -38,3 +39,7 @@ def search(request):
     }
 
     return render(request, 'pacientes/display.html', context)
+
+
+def infos(request):
+    return HttpResponse('Vrau')
