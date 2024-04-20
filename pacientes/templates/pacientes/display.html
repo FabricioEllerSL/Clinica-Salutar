@@ -5,12 +5,12 @@
 
 <div style="display: flex;">
     <a href="{% url 'home:login' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
-    <h class="welcome-text">PACIENTES</h2>
+    <h2 class="welcome-text"><a href="{% url 'pacientes:display_pacientes' %}">PACIENTES</a></h2>
 </div>
 
 <main style="flex-direction: column;">
-    <form action="" method="GET" style="text-align: center;">
-        <input class="pesquisar-pacientes" type="text" name="" id="" placeholder="Pesquisar Paciente...">
+    <form action="{% url 'pacientes:search' %}" method="get" style="text-align: center;">
+        <input class="pesquisar-pacientes" type="text" id="search" name="q" placeholder="Pesquisar Paciente...">
     </form>
     
     <button class="add-paciente-button">

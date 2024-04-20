@@ -1,5 +1,5 @@
 from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from pacientes.models import Paciente
 
 # Create your views here.
@@ -10,8 +10,6 @@ def display(request):
     
     pacientes = Paciente.objects.all()
 
-    print(pacientes, 'aqui')
-
     context_ = {
         'data_atual': data_atual,
         'pacientes': pacientes,
@@ -19,3 +17,24 @@ def display(request):
 
 
     return render(request, 'pacientes/display.html', context_)
+
+
+def search(request):
+
+    search_value = request.GET.get('q', '').strip()
+    print(search_value)
+
+    if search_value == '':
+        return redirect('pacientes:display_pacientes')
+    
+
+    pacientes = Paciente.objects.filter(nome__icontains=search_value).order_by('nome')
+
+
+    context = {
+        'pacientes': pacientes,
+        'page_title': 'Pesquisa - ',
+        'search_value': search_value,
+    }
+
+    return render(request, 'pacientes/display.html', context)

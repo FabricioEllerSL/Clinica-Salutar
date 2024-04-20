@@ -5,4 +5,6 @@ app_name = 'pacientes'
 
 urlpatterns = [
     path('', views.display, name="display_pacientes"),
+    path('search/', views.search, name="search"),
+
 ]

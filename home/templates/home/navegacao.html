@@ -38,7 +38,7 @@
     <div class="modules-container">
         <div class="module-card">
             <img src="{% static 'home/imagens/paciente-icon.png' %}" height="120" alt="">
-            <a href="#" class="module-card-title">PACIENTE</a>
+            <a href="{% url 'pacientes:display_pacientes' %}" class="module-card-title">PACIENTE</a>
             <p class="module-card-description">
                 Gerenciamento dos pacientes consultados.
             </p>
