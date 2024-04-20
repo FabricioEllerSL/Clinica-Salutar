@@ -9,8 +9,11 @@
 </div>
 
 <main style="flex-direction: column;">
-    <form action="{% url 'pacientes:search' %}" method="get" style="text-align: center;">
+    <form action="{% url 'pacientes:search' %}" method="get" style="justify-content: center; display: flex;">
         <input class="pesquisar-pacientes" type="text" id="search" name="q" placeholder="Pesquisar Paciente...">
+        <button type="submit" class="pesquisar-button">
+            <img src="{% static 'pacientes/imagens/pesquisar-icon.png' %}" height="40" alt="">
+        </button>
     </form>
     
     <button class="add-paciente-button">
@@ -19,7 +22,20 @@
 
     <div class="mostrar-pacientes-container">
         {% for paciente in pacientes %}
-        <h4 class="paciente-exibido">{{ paciente.nome }}</h4>
+        <div class="paciente-exibido">
+            <h4 style="font-weight: 500;">{{ paciente.nome }}</h4>
+            <div class="icones-paciente">
+                <a href="" style="margin: 0 3px;">
+                    <img height="20" src="{% static 'pacientes/imagens/editar-icon.png' %}" alt="">
+                </a>
+                <a href="" style="margin: 0 3px;">
+                    <img height="20" src="{% static 'pacientes/imagens/ver-icon.png' %}" alt="">
+                </a>
+                <a href="" style="margin: 0 3px;">
+                    <img height="20" src="{% static 'pacientes/imagens/excluir-icon.png' %}" alt="">
+                </a>
+            </div>
+        </div>
         {% endfor %}
     </div>
 </main>
