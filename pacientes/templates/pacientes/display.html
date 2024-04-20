@@ -10,16 +10,16 @@
 
 <main style="flex-direction: column;">
     <form action="" method="GET" style="text-align: center;">
-        <input type="text" name="" id="" placeholder="Pesquisar Paciente...">
+        <input class="pesquisar-pacientes" type="text" name="" id="" placeholder="Pesquisar Paciente...">
     </form>
     
-    <button>
+    <button class="add-paciente-button">
         Adicionar Paciente
     </button>
 
-    <div class="mostrar-pacientes">
+    <div class="mostrar-pacientes-container">
         {% for paciente in pacientes %}
-        <h4>{{ paciente.nome }}</h4>
+        <h4 class="paciente-exibido">{{ paciente.nome }}</h4>
         {% endfor %}
     </div>
 </main>
