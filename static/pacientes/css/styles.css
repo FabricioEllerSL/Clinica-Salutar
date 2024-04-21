@@ -59,3 +59,62 @@
 .pesquisar-button:hover{
     background-color: #b65254;
 }
+
+/* PERFIL PACIENTE */
+
+
+.paciente-infos-container{
+    background-color: #e4c7c8;
+    margin-left: 70px;
+    padding: 20px 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.campos-paciente{
+    display: inline;
+    background-color: #b39899;
+    color: #6a3d31;
+    padding: 5px 0 5px 10px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.campos-paciente-dado{
+    display: inline;
+    color: #6a3d31;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.demais-infos{
+    background-color: #e4c7c8;
+    text-align: center;
+    border-radius: 30px;
+
+}
+
+.demais-infos-titulo{
+    display: inline-block;
+    background-color: #923d3f;
+    font-family: sans-serif;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #f3cdce;
+    padding: 5px 10px;
+    border-radius: 30px;
+}
+
+.demais-infos-texto{
+    width: 70%;
+    margin: 10px auto;
+    font-family: sans-serif;
+    color: #444;
+}

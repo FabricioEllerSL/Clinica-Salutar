@@ -15,13 +15,40 @@
 </div>
 
 <main>
-    <div style="display: flex;">
-        <img src="{% static 'home/imagens/paciente-icon.png' %}" alt="">
-        <div>
-            <h4>Nome: {{ paciente.nome }}</h4>
-            <h4>Nome: {{ idade_paciente }}</h4>
-            <h4>Nome: {{ endereco_paciente }}</h4>
+    <!-- INFORMAÇÕES DO PACIENTE -->
+    <div style="display: flex; justify-content: center; width: 100%; margin: 30px 0;">
+        <img src="{% static 'home/imagens/paciente-icon.png' %}" alt="" height="150">
+        <div class="paciente-infos-container">
+            <div>
+                <h4 class="campos-paciente">Nome: </h4>
+                <h4 class="campos-paciente-dado">{{ paciente.nome }}</h4>
+            </div>
+            <div>
+                <h4 class="campos-paciente">Idade: </h4>
+                <h4 class="campos-paciente-dado">{{ idade_paciente }}</h4>
+            </div>
+            <div>
+                <h4 class="campos-paciente">Endereço: </h4>
+                <h4 class="campos-paciente-dado">{{ endereco_paciente }}</h4>
+            </div>
         </div>
     </div>
+
+    <!-- PAGAMENTOS - FREQUENCIAS - OBSERVAÇÕES -->
 </main>
+
+<div style="display: flex; justify-content: space-around; width: 100%; margin-top: 40px;">
+    <div class="demais-infos">
+        <h4 class="demais-infos-titulo">PAGAMENTOS</h4>
+        <p class="demais-infos-texto">Pagamentos das sessões: OK!</p>
+    </div>
+    <div class="demais-infos">
+        <h4 class="demais-infos-titulo">FREQUÊNCIA</h4>
+        <p class="demais-infos-texto">Frequencia do(a) paciente: OK!</p>
+    </div>
+    <div class="demais-infos">
+        <h4 class="demais-infos-titulo">OBSERVAÇÕES</h4>
+        <p class="demais-infos-texto">Faltou dinheiro pra implementar isso aqui</p>
+    </div>
+</div>
 {% endblock content %}

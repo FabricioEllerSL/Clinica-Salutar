@@ -44,7 +44,28 @@ def search(request):
 def infos(request, cpf):
     paciente = Paciente.objects.get(pk=cpf)
 
-    idade_paciente = paciente.data_nascimento
+    # metodo para calcular idade do paciente
+
+    def calcular_idade(data_nascimento):
+        data_atual = datetime.now()
+        ano_atual = data_atual.year
+        mes_atual = data_atual.month
+        dia_atual = data_atual.day
+
+        ano_nascimento = data_nascimento.year
+        mes_nascimento = data_nascimento.month
+        dia_nascimento = data_nascimento.day
+
+        idade = ano_atual - ano_nascimento
+
+        # Verifica se ainda não fez aniversário no ano atual
+        if (mes_atual, dia_atual) < (mes_nascimento, dia_nascimento):
+            idade -= 1
+
+        return idade
+
+
+    idade_paciente = calcular_idade(paciente.data_nascimento)
 
     endereco_paciente = paciente.rua + ', No.' + paciente.numero + ' - ' + paciente.bairro
 
