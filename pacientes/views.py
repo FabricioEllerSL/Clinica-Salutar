@@ -96,7 +96,7 @@ def cadastrar_paciente(request):
         form = PacienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('pacientes/display.html')  # redirecionar para página de sucesso após cadastro
+            return redirect('pacientes:display_pacientes')  # redirecionar para página de sucesso após cadastro
     else:
         form = PacienteForm()
     return render(request, 'pacientes/cadastro.html', {'form': form})
