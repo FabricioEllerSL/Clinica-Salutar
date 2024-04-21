@@ -12,9 +12,12 @@
 .pesquisar-pacientes::placeholder {
     font-size: 15px;
     font-weight: bold;
-  }
+}
 
 .add-paciente-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 20%;
     height: 40px;
     border-radius: 50px;
@@ -24,7 +27,13 @@
     font-size: 18px;
     font-family: sans-serif;
     margin: 10px auto;
+    transition: 0.5s;
 }
+
+.add-paciente-button:hover { 
+    transform: scale(1.03);
+    background-color: #b65254;
+} 
 
 .mostrar-pacientes-container{
     width: 40%;
@@ -54,9 +63,11 @@
     width: 50px;
     margin-left: 10px;
     cursor: pointer;
+    transition: 0.5s;
 }
 
-.pesquisar-button:hover{
+.pesquisar-button:hover { 
+    transform: scale(1.05);
     background-color: #b65254;
 }
 

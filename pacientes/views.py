@@ -2,12 +2,16 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from pacientes.models import Paciente
+from .forms import PacienteForm
+
 
 # Create your views here.
 
 data_atual = datetime.now().strftime('%d/%m/%Y')
 
 def display(request):
+
+    """ Essa view exibe os pacientes cadastrados """
     
     pacientes = Paciente.objects.all()
 
@@ -21,6 +25,8 @@ def display(request):
 
 
 def search(request):
+
+    """ Essa view exibe o resultado da pesquisa pelo paciente """
 
     search_value = request.GET.get('q', '').strip()
     print(search_value)
@@ -41,7 +47,11 @@ def search(request):
     return render(request, 'pacientes/display.html', context)
 
 
+
 def infos(request, cpf):
+
+    """ Essa view exibe as informações do paciente como nome, idade e endereço """
+
     paciente = Paciente.objects.get(pk=cpf)
 
     # metodo para calcular idade do paciente
@@ -77,3 +87,16 @@ def infos(request, cpf):
     }
 
     return render(request, 'pacientes/infos.html', context_)
+
+def cadastrar_paciente(request):
+
+    """ Essa view exibe o formulario de cadastro do paciente """
+
+    if request.method == 'POST':
+        form = PacienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('pacientes/display.html')  # redirecionar para página de sucesso após cadastro
+    else:
+        form = PacienteForm()
+    return render(request, 'pacientes/cadastro.html', {'form': form})

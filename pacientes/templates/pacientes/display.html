@@ -16,9 +16,9 @@
         </button>
     </form>
     
-    <button class="add-paciente-button">
+    <a class="add-paciente-button" href="{% url 'pacientes:cadastro_paciente' %}">
         Adicionar Paciente
-    </button>
+    </a>
 
     <div class="mostrar-pacientes-container">
         {% for paciente in pacientes %}
