@@ -25,13 +25,13 @@
         <div class="paciente-exibido">
             <h4 style="font-weight: 500;">{{ paciente.nome }}</h4>
             <div class="icones-paciente">
-                <a href="" style="margin: 0 3px;">
+                <a href="{% url 'pacientes:infos' paciente.cpf %}" style="margin: 0 3px;">
                     <img height="20" src="{% static 'pacientes/imagens/editar-icon.png' %}" alt="">
                 </a>
-                <a href="" style="margin: 0 3px;">
+                <a href="{% url 'pacientes:infos' paciente.cpf %}" style="margin: 0 3px;">
                     <img height="20" src="{% static 'pacientes/imagens/ver-icon.png' %}" alt="">
                 </a>
-                <a href="" style="margin: 0 3px;">
+                <a href="{% url 'pacientes:infos' paciente.cpf %}" style="margin: 0 3px;">
                     <img height="20" src="{% static 'pacientes/imagens/excluir-icon.png' %}" alt="">
                 </a>
             </div>

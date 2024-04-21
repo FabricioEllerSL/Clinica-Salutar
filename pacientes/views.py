@@ -41,5 +41,18 @@ def search(request):
     return render(request, 'pacientes/display.html', context)
 
 
-def infos(request):
-    return HttpResponse('Vrau')
+def infos(request, cpf):
+    paciente = Paciente.objects.get(pk=cpf)
+
+    idade_paciente = paciente.data_nascimento
+
+    endereco_paciente = paciente.rua + ', No.' + paciente.numero + ' - ' + paciente.bairro
+
+    context_ = {
+        'data_atual': data_atual,
+        'paciente': paciente,
+        'idade_paciente': idade_paciente,
+        'endereco_paciente':endereco_paciente,
+    }
+
+    return render(request, 'pacientes/infos.html', context_)
