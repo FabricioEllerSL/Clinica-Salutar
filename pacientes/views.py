@@ -99,4 +99,10 @@ def cadastrar_paciente(request):
             return redirect('pacientes:display_pacientes')  # redirecionar para página de sucesso após cadastro
     else:
         form = PacienteForm()
-    return render(request, 'pacientes/cadastro.html', {'form': form})
+
+    context_ = {
+        'data_atual': data_atual,
+        'form': form,
+        'page_title': 'Cadastro - ',
+    }
+    return render(request, 'pacientes/cadastro.html', context_)
