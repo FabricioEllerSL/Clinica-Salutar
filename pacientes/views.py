@@ -1,14 +1,18 @@
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
 from pacientes.models import Paciente
 from .forms import PacienteForm
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
 
 data_atual = datetime.now().strftime('%d/%m/%Y')
 
+@login_required(login_url='home:login')
 def display(request):
 
     """ Essa view exibe os pacientes cadastrados """
@@ -23,7 +27,7 @@ def display(request):
 
     return render(request, 'pacientes/display.html', context_)
 
-
+@login_required(login_url='home:login')
 def search(request):
 
     """ Essa view exibe o resultado da pesquisa pelo paciente """
@@ -47,7 +51,7 @@ def search(request):
     return render(request, 'pacientes/display.html', context)
 
 
-
+@login_required(login_url='home:login')
 def infos(request, cpf):
 
     """ Essa view exibe as informações do paciente como nome, idade e endereço """
@@ -88,6 +92,7 @@ def infos(request, cpf):
 
     return render(request, 'pacientes/infos.html', context_)
 
+@login_required(login_url='home:login')
 def cadastrar_paciente(request):
 
     """ Essa view exibe o formulario de cadastro do paciente """
@@ -108,6 +113,7 @@ def cadastrar_paciente(request):
     }
     return render(request, 'pacientes/cadastro.html', context_)
 
+@login_required(login_url='home:login')
 def deletar_paciente(request, cpf):
     paciente = get_object_or_404(Paciente, cpf=cpf)
     paciente.delete()

@@ -22,7 +22,26 @@ def first_page(request):
 
 def login_view(request):
 
-    form = AuthenticationForm()
+    form = AuthenticationForm(request)
+
+    if request.method == 'POST':
+        
+        form = AuthenticationForm(request, request.POST)
+
+
+        if form.is_valid():
+            user = form.get_user()
+            auth.login(request, user)
+            return redirect('home:navegacao')
+        
+        else:
+            messages.error(request, 'Usuario ou senha invalidos')
+
+    context_ = {
+        'form': form,
+        'data_atual': data_atual,
+        'page_title': 'Login - '
+    }
 
     form.fields['username'].widget.attrs.update(
         {
@@ -37,23 +56,6 @@ def login_view(request):
         }
     )
 
-    if request.method == 'POST':
-        form = AuthenticationForm(request, request.POST)
-
-
-        if form.is_valid():
-            user = form.get_user()
-            auth.login(request, user)
-            return redirect('home:navegacao')
-        else:
-            messages.error(request, 'Usuario ou senha invalidos')
-
-    context_ = {
-        'form': form,
-        'data_atual': data_atual,
-        'page_title': 'Login - '
-    }
-
     return render(request, 'home/login.html', context_)
 
 
@@ -62,7 +64,7 @@ def logout_view(request):
     return redirect('home:login')  # Redireciona para a página de login após o logout
 
 
-@login_required
+@login_required(login_url='home:login')
 def navigation_page(request):
 
     nome_do_usuario = request.user.username if request.user.is_authenticated else None
