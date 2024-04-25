@@ -14,8 +14,18 @@
     {% include 'partials/font.html' %}
 </head>
 <body>
+    
     <!-- Navbar -->
     {% include 'partials/navbar.html' %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
     {% block content %}
     
     <!-- Conteudo da pagina filha -->

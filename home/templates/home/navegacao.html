@@ -6,8 +6,8 @@
 <main style="display: inline;">
         
     <div style="display: flex;">
-        <a href="{% url 'home:login' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
-        <h class="welcome-text">Olá, XXXXXXX!</h2>
+        <a href="{% url 'home:logout' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
+        <h2 class="welcome-text">Olá, {{ nome_do_usuario }}!</h2>
     </div>
 
     <h5 class="click-text">clique em um dos módulos para acessar suas funções</h5>
