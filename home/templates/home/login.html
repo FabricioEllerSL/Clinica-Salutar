@@ -3,28 +3,29 @@
 
 {% block content %}
 <main>
-    <form action="" method="POST">
+    <div class="sliced">
+        <form class="login-form" method="POST">
 
-        {% csrf_token %}
-    
-        {% for field in form %}
-        <div class="form-content">
-            <div class="form-group">
-                <label for="{{ field.id_for_label }}">{{ field.label }}*</label>
+            {% csrf_token %}
+        
+            <h2 class="login-title">Login</h2>
+            <h4 class="login-subtitle">Entre para continuar</h4>
+
+            {% for field in form %}
+            <div class="inputs-container">
+                <label class="input-element-title" for="{{ field.id_for_label }}">{{ field.label }}*</label>
                 {{ field }}
                 {{ field.errors }}
             </div>
-        </div>
-        {% endfor %}
-    
-        <div class="form-content">
-            <div class="form-group">
-                <button class="btn" type="submit">Send</button>
-            </div>
-        </div>
-    
-    
-    </form>
+            {% endfor %}
+
+            <button class="login-button" type="submit">Send</button>
+        
+        </form>
+    </div>
+    <div class="sliced">
+        <img src="{% static 'home/imagens/candlestick.png' %}" alt="" style="width: 70%; height: 100%;">
+    </div>
 </main>
 {% endblock content %}
 

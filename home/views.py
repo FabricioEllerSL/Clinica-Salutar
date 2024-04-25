@@ -24,8 +24,22 @@ def login_view(request):
 
     form = AuthenticationForm()
 
+    form.fields['username'].widget.attrs.update(
+        {
+            'class': 'input-element',
+            'placeholder': 'Nome do Usuário',
+        }
+    )
+    form.fields['password'].widget.attrs.update(
+        {
+            'class': 'input-element',
+            'placeholder': 'Senha',
+        }
+    )
+
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
+
 
         if form.is_valid():
             user = form.get_user()
