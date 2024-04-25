@@ -75,7 +75,7 @@ def navigation_page(request):
 
     return render(request, 'home/navegacao.html', context_)
 
-@login_required
+
 def create_user(request):
 
     form = CadastrarUsuarioForm()
