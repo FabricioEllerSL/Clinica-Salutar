@@ -9,20 +9,18 @@
 </div>
 
 <main>
-    <div class="cadastro-infos-container">
-        <div class="cadastro-infos-section">
-            <h3 class="foto-title">Foto <br> <h3 class="foto-title-grey">(opcional)</h3></h3>
-            <div style="width: 100%; text-align: center;">
-                <img src="{% static 'home/imagens/paciente-icon.png' %}" alt="" height="150">
-            </div>
-        </div>
-        <div class="cadastro-fields-container">
-            {% for field in form %}
+    <form method="post" >
+        {% csrf_token %}
+            
+        {% for field in form %}
             <label class="cadastro-label" for="{{ field.id_for_label }}">{{ field.label }}</label><br>
             {{ field }}<br>
-            {% endfor %}
-        </div>
-    </div>
+        {% endfor %}
+
+        <button type="submit">SUBIMITE</button>
+
+
+    </form>
 
 </main>
 

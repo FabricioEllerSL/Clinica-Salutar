@@ -92,13 +92,14 @@ def cadastrar_paciente(request):
 
     """ Essa view exibe o formulario de cadastro do paciente """
 
+    form = PacienteForm()
+
     if request.method == 'POST':
         form = PacienteForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('pacientes:display_pacientes')  # redirecionar para página de sucesso após cadastro
-    else:
-        form = PacienteForm()
+       
 
     context_ = {
         'data_atual': data_atual,
