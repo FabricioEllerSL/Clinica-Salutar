@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from pacientes.models import Paciente
 from .forms import PacienteForm
 
@@ -106,3 +106,8 @@ def cadastrar_paciente(request):
         'page_title': 'Cadastro - ',
     }
     return render(request, 'pacientes/cadastro.html', context_)
+
+def deletar_paciente(request, cpf):
+    paciente = get_object_or_404(Paciente, cpf=cpf)
+    paciente.delete()
+    return redirect('pacientes:display_pacientes')
