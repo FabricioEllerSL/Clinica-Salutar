@@ -5,7 +5,11 @@
 
 <div style="display: flex;">
     <a href="{% url 'pacientes:display_pacientes' %}" class="return-button" style="position: static;"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
-    <h2 class="welcome-text">Cadastro de paciente</h2>
+    {% if funcionalidade == 'cadastrar' %}
+        <h2 class="welcome-text">Cadastro de paciente</h2>
+    {% else %}
+        <h2 class="welcome-text">Editar paciente</h2>
+    {% endif %}
 </div>
 
 <main>
@@ -25,7 +29,7 @@
             </div>
             {% endfor %}
     
-            <button type="submit" class="cadastrar-button">Cadastrar</button>
+            <button type="submit" class="cadastrar-button">SALVAR</button>
     
     
         </form>

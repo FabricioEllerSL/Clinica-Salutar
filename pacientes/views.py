@@ -33,7 +33,6 @@ def search(request):
     """ Essa view exibe o resultado da pesquisa pelo paciente """
 
     search_value = request.GET.get('q', '').strip()
-    print(search_value)
 
     if search_value == '':
         return redirect('pacientes:display_pacientes')
@@ -110,6 +109,31 @@ def cadastrar_paciente(request):
         'data_atual': data_atual,
         'form': form,
         'page_title': 'Cadastro - ',
+        'funcionalidade': 'cadastrar',
+    }
+    return render(request, 'pacientes/cadastro.html', context_)
+
+@login_required(login_url='home:login')
+def editar_paciente(request, cpf):
+
+    """ Essa view exibe o formulario de edicao do paciente """
+
+    paciente = get_object_or_404(Paciente, cpf=cpf)
+
+    form = PacienteForm(instance=paciente)
+
+    if request.method == 'POST':
+        form = PacienteForm(request.POST, instance=paciente)
+        if form.is_valid():
+            form.save()
+            return redirect('pacientes:display_pacientes')  # redirecionar para página de sucesso após edicao
+       
+
+    context_ = {
+        'data_atual': data_atual,
+        'form': form,
+        'page_title': 'Cadastro - ',
+        'funcionalidade': 'editar',
     }
     return render(request, 'pacientes/cadastro.html', context_)
 
