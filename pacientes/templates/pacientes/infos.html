@@ -16,63 +16,92 @@
 
 <main>
     <!-- INFORMAÇÕES DO PACIENTE -->
-    <div style="display: flex; justify-content: center; width: 100%; margin: 30px 0;">
-        {% comment %} <img src="{% static 'home/imagens/paciente-icon.png' %}" alt="" height="150"> {% endcomment %}
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 30px 0;">
+        <img src="{% static 'home/imagens/paciente-icon.png' %}" alt="" height="150">
         <div class="paciente-infos-container">
+
             <div class="paciente-infos-subcontainer">
-                <h4 class="campos-paciente">Nome: </h4>
-                <h4 class="campos-paciente-dado">{{ paciente.nome }}</h4>
+                
                 <h4 class="campos-paciente">CPF: </h4>
                 <h4 class="campos-paciente-dado">{{ paciente.cpf }}</h4>
                 <h4 class="campos-paciente">RG: </h4>
                 <h4 class="campos-paciente-dado">{{ paciente.rg }}</h4>
+                <h4 class="campos-paciente">Data de nascimento: </h4>
+                <h4 class="campos-paciente-dado">{{ paciente.data_nascimento }}</h4>
+
             </div>
 
             <div class="paciente-infos-subcontainer">
-                <h4 class="campos-paciente">Data de nascimento: </h4>
-                <h4 class="campos-paciente-dado">{{ paciente.data_nascimento }}</h4>
+
                 {% if paciente.rua %}
                     <h4 class="campos-paciente">Rua: </h4>
                     <h4 class="campos-paciente-dado">{{ paciente.rua }}</h4>
-                {% elif  %}
+                {% else  %}
                     <h4 class="campos-paciente">Rua: </h4>
-                    <h4 class="campos-paciente-dado">{{ paciente.rua }}</h4>
+                    <h4 class="campos-paciente-dado">Não informado...</h4>
                 {% endif %}
+
                 {% if paciente.bairro %}
                 <h4 class="campos-paciente">Bairro: </h4>
                 <h4 class="campos-paciente-dado">{{ paciente.bairro }}</h4>
+                {% else  %}
+                    <h4 class="campos-paciente">Bairro: </h4>
+                    <h4 class="campos-paciente-dado">Não informado...</h4>
                 {% endif %}
-            </div>
-
-            <div class="paciente-infos-subcontainer">
                 {% if paciente.numero %}
                 <h4 class="campos-paciente">Número: </h4>
                 <h4 class="campos-paciente-dado">{{ paciente.numero }}</h4>
+                {% else  %}
+                    <h4 class="campos-paciente">Número: </h4>
+                    <h4 class="campos-paciente-dado">Não informado...</h4>
                 {% endif %}
+            </div>
+
+            <div class="paciente-infos-subcontainer">
+
                 {% if paciente.complemento %}
                     <h4 class="campos-paciente">Complemento: </h4>
                     <h4 class="campos-paciente-dado">{{ paciente.complemento }}</h4>
+                {% else  %}
+                    <h4 class="campos-paciente">Complemento: </h4>
+                    <h4 class="campos-paciente-dado">Não informado...</h4>
                 {% endif %}
+
                 {% if paciente.cep %}
                 <h4 class="campos-paciente">CEP: </h4>
                 <h4 class="campos-paciente-dado">{{ paciente.cep }}</h4>
+                {% else  %}
+                    <h4 class="campos-paciente">CEP: </h4>
+                    <h4 class="campos-paciente-dado">Não informado...</h4>
+                {% endif %}
+                {% if paciente.ponto_referencia %}
+                    <h4 class="campos-paciente">Ponto de Referência: </h4>
+                    <h4 class="campos-paciente-dado">{{ paciente.ponto_referencia }}</h4>
+                {% else  %}
+                    <h4 class="campos-paciente">Ponto de Referência: </h4>
+                    <h4 class="campos-paciente-dado">Não informado...</h4>
                 {% endif %}
 
             </div>
 
             <div class="paciente-infos-subcontainer">
-                {% if paciente.ponto_referencia %}
-                    <h4 class="campos-paciente">Ponto de Referência: </h4>
-                    <h4 class="campos-paciente-dado">{{ paciente.ponto_referencia }}</h4>
-                {% endif %}
+
                 {% if paciente.nome_mae %}
                     <h4 class="campos-paciente">Nome da Mãe: </h4>
                     <h4 class="campos-paciente-dado">{{ paciente.nome_mae }}</h4>
+                {% else  %}
+                    <h4 class="campos-paciente">Nome da Mãe: </h4>
+                    <h4 class="campos-paciente-dado">Não informado...</h4>
                 {% endif %}
+
                 {% if paciente.nome_pai %}
                     <h4 class="campos-paciente">Nome do Pai: </h4>
                     <h4 class="campos-paciente-dado">{{ paciente.nome_pai }}</h4>
+                {% else  %}
+                    <h4 class="campos-paciente">Nome do Pai: </h4>
+                    <h4 class="campos-paciente-dado">Não informado...</h4>
                 {% endif %}
+
                 <h4 class="campos-paciente">Telefone</h4>
                 <h4 class="campos-paciente-dado">{{ paciente.telefone }}</h4>
                 
