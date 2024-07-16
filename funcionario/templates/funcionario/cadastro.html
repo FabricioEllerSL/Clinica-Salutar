@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div style="display: flex;">
+    <a href="{% url 'funcionario:display_funcionarios' %}" class="return-button" style="position: static;"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
+    {% if funcionalidade == 'cadastrar' %}
+        <h2 class="welcome-text">Cadastro de Funcionário</h2>
+    {% else %}
+        <h2 class="welcome-text">Editar Funcionário</h2>
+    {% endif %}
+</div>
+
+<main>
+    <div class="cadastro-img-container">
+        <h3 class="foto-title">Foto</h3>
+        <h5 class="foto-title-grey">(opcional)</h5>
+        <img src="{% static 'home/imagens/paciente-icon.png' %}" height="200" alt="">
+    </div>
+    <div class="cadastro-container">
+        <form method="post" style="width: 100%; display: flex; flex-wrap: wrap;">
+            {% csrf_token %}
+                
+            {% for field in form %}
+            <div style="width: 30%; margin-bottom: 5px;">
+                <label class="cadastro-label" for="{{ field.id_for_label }}">{{ field.label }}:</label><br>
+                {{ field }}
+            </div>
+            {% endfor %}
+    
+            <button type="submit" class="cadastrar-button">SALVAR</button>
+    
+    
+        </form>
+    </div>
+
+</main>
+
+{% endblock content %}

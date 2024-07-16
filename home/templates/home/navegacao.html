@@ -45,9 +45,9 @@
         </div>
         <div class="module-card">
             <img src="{% static 'home/imagens/funcionario-icon.png' %}" height="120" alt="">
-            <a href="#" class="module-card-title">FUNCIONÁRIOS</a>
+            <a href="{% url 'funcionario:display_funcionarios' %}" class="module-card-title">FUNCIONÁRIOS</a>
             <p class="module-card-description">
-                Gerenciamento dos produtos cadastrados.
+                Gerenciamento dos funcionários cadastrados.
             </p>
         </div>
         <div class="module-card">

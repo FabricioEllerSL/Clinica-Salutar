@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from pacientes.models import Paciente
 from .forms import PacienteForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 
@@ -33,14 +34,12 @@ def search(request):
     """ Essa view exibe o resultado da pesquisa pelo paciente """
 
     search_value = request.GET.get('q', '').strip()
-
-    if search_value == '':
-        return redirect('pacientes:display_pacientes')
-    
-
     pacientes = Paciente.objects.filter(nome__icontains=search_value).order_by('nome')
 
-
+    if not pacientes:
+        messages.error(request, 'Paciente não foi encontrado!')
+        return redirect('pacientes:display_pacientes')
+    
     context = {
         'pacientes': pacientes,
         'page_title': 'Pesquisa - ',
@@ -80,7 +79,10 @@ def infos(request, cpf):
 
     idade_paciente = calcular_idade(paciente.data_nascimento)
 
-    endereco_paciente = paciente.rua + ', No.' + paciente.numero + ' - ' + paciente.bairro
+    endereco_paciente = ''
+
+    if paciente.rua and paciente.numero and paciente.bairro:
+        endereco_paciente = paciente.rua + ', No.' + paciente.numero + ' - ' + paciente.bairro
 
     context_ = {
         'data_atual': data_atual,
@@ -102,7 +104,11 @@ def cadastrar_paciente(request):
         form = PacienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('pacientes:display_pacientes')  # redirecionar para página de sucesso após cadastro
+            messages.success(request, 'Cadastro realizado com sucesso!')
+            return redirect('pacientes:display_pacientes')
+        else:
+            messages.error(request, 'As informações não foram cadastradas corretamente!')
+            return redirect('pacientes:display_pacientes')
        
 
     context_ = {

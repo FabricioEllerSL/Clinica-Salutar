@@ -20,9 +20,19 @@
 
     {% if messages %}
         {% for message in messages %}
-            <div class="message {{ message.tags }}">
-                {{ message }}
-            </div>
+            {% if message.tags == 'success' %}
+                <div class="custom-alert custom-alert-success">
+                    {{ message }}
+                </div>
+            {% elif message.tags == 'error' %}
+                <div class="custom-alert custom-alert-error">
+                    {{ message }}
+                </div>
+            {% else %}
+                <div class="custom-alert">
+                    {{ message }}
+                </div>
+            {% endif %}
         {% endfor %}
     {% endif %}
 
