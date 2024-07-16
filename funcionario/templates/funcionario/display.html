@@ -33,9 +33,21 @@
                     <a href="{% url 'funcionario:visualizacao_funcionario' funcionario.cpf %}" style="margin: 0 3px;">
                         <img height="20" src="{% static 'pacientes/imagens/ver-icon.png' %}" alt="">
                     </a>
-                    <a href="{% url 'funcionario:exclusao_funcionario' funcionario.cpf %}" style="margin: 0 3px;">
+                    <a href="#" class="opcao-deletar" style="margin: 0 3px;">
                         <img height="20" src="{% static 'pacientes/imagens/excluir-icon.png' %}" alt="">
                     </a>
+                </div>
+            </div>
+
+            <!-- MODAL CONFIRMACAO DE EXCLUSAO -->
+
+            <div class="modal-background">
+                <div class="modal-confirmar-delete">
+                    <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
+                    <div class="botoes-modal">
+                        <a href="{% url 'funcionario:exclusao_funcionario' funcionario.cpf %}" class="botao-confirmar" id="botaoConfirmar">Confirmar</a>
+                        <a class="botao-cancelar" id="botaoCancelar">Cancelar</a>
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -46,3 +58,5 @@
 </main>
 
 {% endblock content %}
+
+
