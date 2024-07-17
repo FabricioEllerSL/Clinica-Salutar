@@ -22,39 +22,26 @@
 
             <div class="paciente-infos-subcontainer">
                 
-                <h4 class="campos-paciente">CPF: </h4>
-                <h4 class="campos-paciente-dado">{{ paciente.cpf }}</h4>
+                <h4 class="campos-paciente campo-cpf">CPF: </h4>
+                <h4 class="campos-paciente-dado">{{ paciente.cpf|slice:"0:3" }}.{{ paciente.cpf|slice:"3:6" }}.{{ paciente.cpf|slice:"6:9" }}-{{ paciente.cpf|slice:"9:11" }}</h4>
                 <h4 class="campos-paciente">RG: </h4>
-                <h4 class="campos-paciente-dado">{{ paciente.rg }}</h4>
-                <h4 class="campos-paciente">Data de nascimento: </h4>
-                <h4 class="campos-paciente-dado">{{ paciente.data_nascimento }}</h4>
+                <h4 class="campos-paciente-dado">{{ paciente.rg| slice:"0:2" }}.{{ paciente.rg| slice:"2:5" }}.{{ paciente.rg| slice:"5:8" }}-{{ paciente.rg| slice:"8:" }}</h4>
+                <h4 class="campos-paciente">Data Nascimento: </h4>
+                <h4 class="campos-paciente-dado">{{ paciente.data_nascimento | date:"d/m/Y" }}</h4>
 
             </div>
 
             <div class="paciente-infos-subcontainer">
 
-                {% if paciente.rua %}
-                    <h4 class="campos-paciente">Rua: </h4>
-                    <h4 class="campos-paciente-dado">{{ paciente.rua }}</h4>
-                {% else  %}
-                    <h4 class="campos-paciente">Rua: </h4>
-                    <h4 class="campos-paciente-dado">Não informado...</h4>
-                {% endif %}
+                <h4 class="campos-paciente">Rua: </h4>
+                <h4 class="campos-paciente-dado">{{ paciente.rua }}</h4>
 
-                {% if paciente.bairro %}
                 <h4 class="campos-paciente">Bairro: </h4>
                 <h4 class="campos-paciente-dado">{{ paciente.bairro }}</h4>
-                {% else  %}
-                    <h4 class="campos-paciente">Bairro: </h4>
-                    <h4 class="campos-paciente-dado">Não informado...</h4>
-                {% endif %}
-                {% if paciente.numero %}
+
                 <h4 class="campos-paciente">Número: </h4>
                 <h4 class="campos-paciente-dado">{{ paciente.numero }}</h4>
-                {% else  %}
-                    <h4 class="campos-paciente">Número: </h4>
-                    <h4 class="campos-paciente-dado">Não informado...</h4>
-                {% endif %}
+
             </div>
 
             <div class="paciente-infos-subcontainer">
@@ -67,18 +54,14 @@
                     <h4 class="campos-paciente-dado">Não informado...</h4>
                 {% endif %}
 
-                {% if paciente.cep %}
                 <h4 class="campos-paciente">CEP: </h4>
-                <h4 class="campos-paciente-dado">{{ paciente.cep }}</h4>
-                {% else  %}
-                    <h4 class="campos-paciente">CEP: </h4>
-                    <h4 class="campos-paciente-dado">Não informado...</h4>
-                {% endif %}
+                <h4 class="campos-paciente-dado">{{ paciente.cep | slice:"0:5" }}-{{ paciente.cep | slice:"5:" }}</h4>
+
                 {% if paciente.ponto_referencia %}
-                    <h4 class="campos-paciente">Ponto de Referência: </h4>
+                    <h4 class="campos-paciente">Ponto Referência: </h4>
                     <h4 class="campos-paciente-dado">{{ paciente.ponto_referencia }}</h4>
                 {% else  %}
-                    <h4 class="campos-paciente">Ponto de Referência: </h4>
+                    <h4 class="campos-paciente">Ponto Referência: </h4>
                     <h4 class="campos-paciente-dado">Não informado...</h4>
                 {% endif %}
 
@@ -103,7 +86,7 @@
                 {% endif %}
 
                 <h4 class="campos-paciente">Telefone</h4>
-                <h4 class="campos-paciente-dado">{{ paciente.telefone }}</h4>
+                <h4 class="campos-paciente-dado">({{ paciente.telefone | slice:"0:2" }}) {{ paciente.rg| slice:"2:" }}</h4>
                 
             </div>
 
@@ -127,4 +110,5 @@
         <p class="demais-infos-texto">Faltou dinheiro pra implementar isso aqui</p>
     </div>
 </div>
+
 {% endblock content %}

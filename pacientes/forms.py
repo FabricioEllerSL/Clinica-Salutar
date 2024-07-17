@@ -12,6 +12,10 @@ class PacienteForm(forms.ModelForm):
         super(PacienteForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-input'
+            if field_name == 'cpf':
+                field.widget.attrs['class'] = 'form-input campo-cpf'
+            elif field_name == 'cep':
+                field.widget.attrs['class'] = 'form-input campo-cep'
 
     def clean_cpf(self):
         cpf = self.cleaned_data.get('cpf')
