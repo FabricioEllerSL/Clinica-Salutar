@@ -16,6 +16,12 @@ class PacienteForm(forms.ModelForm):
                 field.widget.attrs['class'] = 'form-input campo-cpf'
             elif field_name == 'cep':
                 field.widget.attrs['class'] = 'form-input campo-cep'
+            elif field_name == 'data_nascimento':
+                field.widget.attrs['class'] = 'form-input campo-data'
+            elif field_name == 'telefone':
+                field.widget.attrs['class'] = 'form-input campo-telefone'
+            elif field_name == 'rg':
+                field.widget.attrs['class'] = 'form-input campo-rg'
 
     def clean_cpf(self):
         cpf = self.cleaned_data.get('cpf')
@@ -25,10 +31,20 @@ class PacienteForm(forms.ModelForm):
             raise ValidationError('CPF inválido.')
         return cpf
     
+    def clean_rg(self):
+        rg = self.cleaned_data.get('rg')
+        rg = rg.replace('.', '').replace('-', '')
+        return rg
+    
     def clean_cep(self):
         cep = self.cleaned_data.get('cep')
         cep = cep.replace('-', '')
         return cep
+    
+    def clean_telefone(self):
+        telefone = self.cleaned_data.get('telefone')
+        telefone = telefone.replace('(', '').replace(')', '').replace('-', '')
+        return telefone
 
 
     class Meta:

@@ -9,9 +9,21 @@
     <a href="{% url 'pacientes:editar_paciente' paciente.id %}" style="position: absolute; right: 100px; top:80px;">
         <img src="{% static 'pacientes/imagens/editar-icon.png' %}" height="60" alt="">
     </a>
-    <a href="{% url 'pacientes:deletar_paciente' paciente.id %}" style="position: absolute; right: 30px; top:80px;">
+    <a href="#" class="opcao-deletar" style="position: absolute; right: 30px; top:80px;">
         <img src="{% static 'pacientes/imagens/excluir-icon.png' %}" height="60" alt="">
     </a>
+</div>
+
+<!-- MODAL CONFIRMACAO DE EXCLUSAO -->
+
+<div class="modal-background">
+    <div class="modal-confirmar-delete">
+        <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
+        <div class="botoes-modal">
+            <a href="{% url 'pacientes:deletar_paciente' paciente.id %}" class="botao-confirmar" id="botaoConfirmar">Confirmar</a>
+            <a class="botao-cancelar" id="botaoCancelar">Cancelar</a>
+        </div>
+    </div>
 </div>
 
 <main>
@@ -86,29 +98,12 @@
                 {% endif %}
 
                 <h4 class="campos-paciente">Telefone</h4>
-                <h4 class="campos-paciente-dado">({{ paciente.telefone | slice:"0:2" }}) {{ paciente.rg| slice:"2:" }}</h4>
+                <h4 class="campos-paciente-dado">{{ paciente.telefone }}</h4>
                 
             </div>
 
         </div>
     </div>
-
-    <!-- PAGAMENTOS - FREQUENCIAS - OBSERVAÇÕES -->
 </main>
-
-<div style="display: flex; justify-content: space-around; width: 100%; margin-top: 40px;">
-    <div class="demais-infos">
-        <h4 class="demais-infos-titulo">PAGAMENTOS</h4>
-        <p class="demais-infos-texto">Pagamentos das sessões: OK!</p>
-    </div>
-    <div class="demais-infos">
-        <h4 class="demais-infos-titulo">FREQUÊNCIA</h4>
-        <p class="demais-infos-texto">Frequencia do(a) paciente: OK!</p>
-    </div>
-    <div class="demais-infos">
-        <h4 class="demais-infos-titulo">OBSERVAÇÕES</h4>
-        <p class="demais-infos-texto">Faltou dinheiro pra implementar isso aqui</p>
-    </div>
-</div>
 
 {% endblock content %}
