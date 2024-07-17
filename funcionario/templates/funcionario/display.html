@@ -27,10 +27,10 @@
             <div class="paciente-exibido">
                 <h4 style="font-weight: 500;">{{ funcionario.nome }}</h4>
                 <div class="icones-paciente">
-                    <a href="{% url 'funcionario:edicao_funcionario' funcionario.cpf %}" style="margin: 0 3px;">
+                    <a href="{% url 'funcionario:edicao_funcionario' funcionario.id %}" style="margin: 0 3px;">
                         <img height="20" src="{% static 'pacientes/imagens/editar-icon.png' %}" alt="">
                     </a>
-                    <a href="{% url 'funcionario:visualizacao_funcionario' funcionario.cpf %}" style="margin: 0 3px;">
+                    <a href="{% url 'funcionario:visualizacao_funcionario' funcionario.id %}" style="margin: 0 3px;">
                         <img height="20" src="{% static 'pacientes/imagens/ver-icon.png' %}" alt="">
                     </a>
                     <a href="#" class="opcao-deletar" style="margin: 0 3px;">
@@ -45,7 +45,7 @@
                 <div class="modal-confirmar-delete">
                     <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
                     <div class="botoes-modal">
-                        <a href="{% url 'funcionario:exclusao_funcionario' funcionario.cpf %}" class="botao-confirmar" id="botaoConfirmar">Confirmar</a>
+                        <a href="{% url 'funcionario:exclusao_funcionario' funcionario.id %}" class="botao-confirmar" id="botaoConfirmar">Confirmar</a>
                         <a class="botao-cancelar" id="botaoCancelar">Cancelar</a>
                     </div>
                 </div>

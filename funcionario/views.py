@@ -72,11 +72,11 @@ def pesquisar_funcionario(request):
     return render(request, 'funcionario/display.html', context)
 
 @login_required(login_url='home:login')
-def editar_funcionario(request, cpf):
+def editar_funcionario(request, id):
 
     """ Essa view exibe o formulario de edicao do funcionario """
 
-    funcionario = get_object_or_404(Funcionario, cpf=cpf)
+    funcionario = get_object_or_404(Funcionario, id=id)
 
     form = FuncionarioForm(instance=funcionario)
 
@@ -96,11 +96,11 @@ def editar_funcionario(request, cpf):
     return render(request, 'funcionario/cadastro.html', context_)
 
 @login_required(login_url='home:login')
-def infos_funcionario(request, cpf):
+def infos_funcionario(request, id):
 
     """ Essa view exibe as informações do paciente como nome, idade e endereço """
 
-    funcionario = Funcionario.objects.get(pk=cpf)
+    funcionario = Funcionario.objects.get(pk=id)
 
     # metodo para calcular idade do paciente
 
@@ -143,7 +143,7 @@ def infos_funcionario(request, cpf):
 
 
 @login_required(login_url='home:login')
-def deletar_funcionario(request, cpf):
-    funcionario = get_object_or_404(Funcionario, cpf=cpf)
+def deletar_funcionario(request, id):
+    funcionario = get_object_or_404(Funcionario, id=id)
     funcionario.delete()
     return redirect('funcionario:display_funcionarios')

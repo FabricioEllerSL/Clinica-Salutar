@@ -6,10 +6,10 @@
 <div style="display: flex;">
     <a href="{% url 'funcionario:display_funcionarios' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
     <h2 class="welcome-text">FUNCIONÁRIO</h2>
-    <a href="{% url 'funcionario:edicao_funcionario' funcionario.cpf %}" style="position: absolute; right: 100px; top:80px;">
+    <a href="{% url 'funcionario:edicao_funcionario' funcionario.id %}" style="position: absolute; right: 100px; top:80px;">
         <img src="{% static 'pacientes/imagens/editar-icon.png' %}" height="60" alt="">
     </a>
-    <a href="{% url 'funcionario:exclusao_funcionario' funcionario.cpf %}" style="position: absolute; right: 30px; top:80px;">
+    <a href="{% url 'funcionario:exclusao_funcionario' funcionario.id %}" style="position: absolute; right: 30px; top:80px;">
         <img src="{% static 'pacientes/imagens/excluir-icon.png' %}" height="60" alt="">
     </a>
 </div>
