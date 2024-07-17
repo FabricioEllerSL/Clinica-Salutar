@@ -60,7 +60,7 @@ def pesquisar_funcionario(request):
     funcionarios = Funcionario.objects.filter(nome__icontains=search_value).order_by('nome')
 
     if not funcionarios:
-        messages.error(request, 'Funcionário não foi encontrado!')
+        messages.error(request, 'Funcionário não encontrado!')
         return redirect('funcionario:display_funcionarios')
     
     context = {
