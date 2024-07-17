@@ -19,10 +19,16 @@ class PacienteForm(forms.ModelForm):
 
     def clean_cpf(self):
         cpf = self.cleaned_data.get('cpf')
+        cpf = cpf.replace('.', '').replace('-', '')
         if not validar_cpf(cpf):
             
             raise ValidationError('CPF inválido.')
         return cpf
+    
+    def clean_cep(self):
+        cep = self.cleaned_data.get('cep')
+        cep = cep.replace('-', '')
+        return cep
 
 
     class Meta:

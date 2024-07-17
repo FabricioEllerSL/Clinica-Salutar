@@ -6,10 +6,10 @@
 <div style="display: flex;">
     <a href="{% url 'pacientes:display_pacientes' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
     <h2 class="welcome-text">Paciente {{paciente.nome }}</h2>
-    <a href="{% url 'pacientes:editar_paciente' paciente.cpf %}" style="position: absolute; right: 100px; top:80px;">
+    <a href="{% url 'pacientes:editar_paciente' paciente.id %}" style="position: absolute; right: 100px; top:80px;">
         <img src="{% static 'pacientes/imagens/editar-icon.png' %}" height="60" alt="">
     </a>
-    <a href="{% url 'pacientes:deletar_paciente' paciente.cpf %}" style="position: absolute; right: 30px; top:80px;">
+    <a href="{% url 'pacientes:deletar_paciente' paciente.id %}" style="position: absolute; right: 30px; top:80px;">
         <img src="{% static 'pacientes/imagens/excluir-icon.png' %}" height="60" alt="">
     </a>
 </div>

@@ -50,11 +50,11 @@ def search(request):
 
 
 @login_required(login_url='home:login')
-def infos(request, cpf):
+def infos(request, id):
 
     """ Essa view exibe as informações do paciente como nome, idade e endereço """
 
-    paciente = Paciente.objects.get(pk=cpf)
+    paciente = Paciente.objects.get(pk=id)
 
     context_ = {
         'data_atual': data_atual,
@@ -90,11 +90,11 @@ def cadastrar_paciente(request):
     return render(request, 'pacientes/cadastro.html', context_)
 
 @login_required(login_url='home:login')
-def editar_paciente(request, cpf):
+def editar_paciente(request, id):
 
     """ Essa view exibe o formulario de edicao do paciente """
 
-    paciente = get_object_or_404(Paciente, cpf=cpf)
+    paciente = get_object_or_404(Paciente, id=id)
 
     form = PacienteForm(instance=paciente)
 
@@ -114,7 +114,7 @@ def editar_paciente(request, cpf):
     return render(request, 'pacientes/cadastro.html', context_)
 
 @login_required(login_url='home:login')
-def deletar_paciente(request, cpf):
-    paciente = get_object_or_404(Paciente, cpf=cpf)
+def deletar_paciente(request, id):
+    paciente = get_object_or_404(Paciente, id=id)
     paciente.delete()
     return redirect('pacientes:display_pacientes')
