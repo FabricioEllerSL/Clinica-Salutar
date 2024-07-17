@@ -61,7 +61,7 @@ def login_view(request):
 
 def logout_view(request):
     auth.logout(request)
-    return redirect('home:login')  # Redireciona para a página de login após o logout
+    return redirect('home:home')  # Redireciona para a página de login após o logout
 
 
 @login_required(login_url='home:login')
