@@ -37,7 +37,7 @@ def search(request):
     pacientes = Paciente.objects.filter(nome__icontains=search_value).order_by('nome')
 
     if not pacientes:
-        messages.error(request, 'Paciente não foi encontrado!')
+        messages.error(request, 'Paciente não encontrado!')
         return redirect('pacientes:display_pacientes')
     
     context = {
@@ -103,6 +103,9 @@ def editar_paciente(request, id):
         if form.is_valid():
             form.save()
             return redirect('pacientes:display_pacientes')  # redirecionar para página de sucesso após edicao
+        else:
+            messages.error(request, 'As informações não foram cadastradas corretamente!')
+            return redirect('pacientes:display_pacientes')
        
 
     context_ = {
