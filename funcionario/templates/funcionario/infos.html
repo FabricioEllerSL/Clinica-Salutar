@@ -67,7 +67,7 @@
                 <h4 class="campos-paciente">Número: </h4>
                 <h4 class="campos-paciente-dado">{{ funcionario.numero }}</h4>
 
-                {% if paciente.complemento %}
+                {% if funcionario.complemento %}
                     <h4 class="campos-paciente">Complemento: </h4>
                     <h4 class="campos-paciente-dado">{{ funcionario.complemento }}</h4>
                 {% else  %}
@@ -78,12 +78,12 @@
                 <h4 class="campos-paciente">CEP: </h4>
                 <h4 class="campos-paciente-dado">{{ funcionario.cep | slice:"0:5" }}-{{ funcionario.cep | slice:"5:" }}</h4>
     
-                {% if paciente.ponto_referencia %}
+                {% if funcionario.ponto_referencia %}
                     <h4 class="campos-paciente">Ponto Referência: </h4>
                     <h4 class="campos-paciente-dado">{{ funcionario.ponto_referencia }}</h4>
                 {% else  %}
                     <h4 class="campos-paciente">Ponto Referência: </h4>
-                    <h4 class="campos-paciente-dado">Não informado...</h4>
+                    <h4 class="campos-paciente-dado">Não informado....</h4>
                 {% endif %}
 
             </div>
