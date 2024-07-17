@@ -9,9 +9,21 @@
     <a href="{% url 'funcionario:edicao_funcionario' funcionario.id %}" style="position: absolute; right: 100px; top:80px;">
         <img src="{% static 'pacientes/imagens/editar-icon.png' %}" height="60" alt="">
     </a>
-    <a href="{% url 'funcionario:exclusao_funcionario' funcionario.id %}" style="position: absolute; right: 30px; top:80px;">
+    <a href="#" class="opcao-deletar" style="position: absolute; right: 30px; top:80px;">
         <img src="{% static 'pacientes/imagens/excluir-icon.png' %}" height="60" alt="">
     </a>
+</div>
+
+<!-- MODAL CONFIRMACAO DE EXCLUSAO -->
+
+<div class="modal-background">
+    <div class="modal-confirmar-delete">
+        <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
+        <div class="botoes-modal">
+            <a href="{% url 'funcionario:exclusao_funcionario' funcionario.id %}" class="botao-confirmar" id="botaoConfirmar">Confirmar</a>
+            <a class="botao-cancelar" id="botaoCancelar">Cancelar</a>
+        </div>
+    </div>
 </div>
 
 <main>
