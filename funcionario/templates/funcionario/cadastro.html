@@ -24,8 +24,13 @@
                 
             {% for field in form %}
             <div style="width: 30%; margin-bottom: 5px;">
+                {% if field.field.required %}
+                <label class="cadastro-label" for="{{ field.id_for_label }}">{{ field.label }} *:</label><br>
+                {{ field }}
+                {% else %}
                 <label class="cadastro-label" for="{{ field.id_for_label }}">{{ field.label }}:</label><br>
                 {{ field }}
+                {% endif %}
             </div>
             {% endfor %}
     
