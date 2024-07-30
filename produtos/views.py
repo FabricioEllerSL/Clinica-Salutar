@@ -50,3 +50,23 @@ def cadastrar_produto(request):
         'funcionalidade': 'cadastrar',
     }
     return render(request, 'produtos/cadastro.html', context_)
+
+@login_required(login_url='home:login')
+def search(request):
+
+    """ Essa view exibe o resultado da pesquisa pelo produto """
+
+    search_value = request.GET.get('q', '').strip()
+    produtos = Produto.objects.filter(nome__icontains=search_value).order_by('nome')
+
+    if not produtos:
+        messages.error(request, 'Produto não encontrado!')
+        return redirect('produtos:display_produtos')
+    
+    context = {
+        'produtos': produtos,
+        'page_title': 'Pesquisa - ',
+        'search_value': search_value,
+    }
+
+    return render(request, 'produtos/display.html', context)

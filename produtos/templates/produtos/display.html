@@ -9,7 +9,7 @@
 </div>
 
 <main style="flex-direction: column;">
-    <form action="" method="get" style="justify-content: center; display: flex;">
+    <form action="{% url 'produtos:search' %}" method="get" style="justify-content: center; display: flex;">
         <input class="pesquisar-pacientes" type="text" id="search" name="q" placeholder="Pesquisar Produto...">
         <button type="submit" class="pesquisar-button">
             <img src="{% static 'pacientes/imagens/pesquisar-icon.png' %}" height="40" alt="">
