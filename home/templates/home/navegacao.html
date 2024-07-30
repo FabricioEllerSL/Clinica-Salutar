@@ -52,7 +52,7 @@
         </div>
         <div class="module-card">
             <img src="{% static 'home/imagens/medico-icon.png' %}" height="120" alt="">
-            <a href="#" class="module-card-title">MÉDICOS</a>
+            <a href="{% url 'medicos:display_medicos' %}" class="module-card-title">MÉDICOS</a>
             <p class="module-card-description">
                 Gerenciamento dos médicos em trabalho.
             </p>
