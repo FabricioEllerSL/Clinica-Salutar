@@ -15,7 +15,7 @@
     <div class="modules-container">
         <div class="module-card">
             <img src="{% static 'home/imagens/produto-icon.png' %}" height="120" alt="">
-            <a href="#" class="module-card-title">PRODUTO</a>
+            <a href="{% url 'produtos:display_produtos' %}" class="module-card-title">PRODUTO</a>
             <p class="module-card-description">
                 Gerenciamento dos produtos cadastrados.
             </p>
