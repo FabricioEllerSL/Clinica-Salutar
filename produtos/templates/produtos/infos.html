@@ -5,8 +5,8 @@
 
 <div style="display: flex;">
     <a href="{% url 'produtos:display_produtos' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
-    <h2 class="welcome-text">Produto {{produto.nome }}</h2>
-    <a href="" style="position: absolute; right: 100px; top:80px;">
+    <h2 class="welcome-text">Produto {{ produto.nome }}</h2>
+    <a href="{% url 'produtos:editar_produto' produto.id %}" style="position: absolute; right: 100px; top:80px;">
         <img src="{% static 'pacientes/imagens/editar-icon.png' %}" height="60" alt="">
     </a>
     <a href="#" class="opcao-deletar" data-modal-id="modal-{{ paciente.id }}" style="position: absolute; right: 30px; top:80px;">

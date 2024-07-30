@@ -27,7 +27,7 @@
                 <div class="paciente-exibido">
                     <h4 style="font-weight: 500;">{{ produto.nome }}</h4>
                     <div class="icones-paciente">
-                        <a href="" style="margin: 0 3px;">
+                        <a href="{% url 'produtos:editar_produto' produto.id %}" style="margin: 0 3px;">
                             <img height="20" src="{% static 'pacientes/imagens/editar-icon.png' %}" alt="">
                         </a>
                         <a href="{% url 'produtos:infos' produto.id %}" style="margin: 0 3px;">

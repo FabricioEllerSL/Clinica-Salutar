@@ -84,3 +84,30 @@ def infos(request, id):
     }
 
     return render(request, 'produtos/infos.html', context_)
+
+@login_required(login_url='home:login')
+def editar_produto(request, id):
+
+    """ Essa view exibe o formulario de edicao do produto """
+
+    produto = get_object_or_404(Produto, id=id)
+
+    form = ProdutoForm(instance=produto)
+
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST, instance=produto)
+        if form.is_valid():
+            form.save()
+            return redirect('produtos:display_produtos')  # redirecionar para página de sucesso após edicao
+        else:
+            messages.error(request, 'As informações não foram cadastradas corretamente!')
+            return redirect('produtos:display_produtos')
+       
+
+    context_ = {
+        'data_atual': data_atual,
+        'form': form,
+        'page_title': 'Cadastro - ',
+        'funcionalidade': 'editar',
+    }
+    return render(request, 'produtos/cadastro.html', context_)
