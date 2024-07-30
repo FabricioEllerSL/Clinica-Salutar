@@ -70,3 +70,17 @@ def search(request):
     }
 
     return render(request, 'produtos/display.html', context)
+
+@login_required(login_url='home:login')
+def infos(request, id):
+
+    """ Essa view exibe as informações do produto como nome, descrição e preço unitário """
+
+    produto = Produto.objects.get(pk=id)
+
+    context_ = {
+        'data_atual': data_atual,
+        'produto': produto,
+    }
+
+    return render(request, 'produtos/infos.html', context_)
