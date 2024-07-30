@@ -111,3 +111,10 @@ def editar_produto(request, id):
         'funcionalidade': 'editar',
     }
     return render(request, 'produtos/cadastro.html', context_)
+
+
+@login_required(login_url='home:login')
+def deletar_produto(request, id):
+    produto = get_object_or_404(Produto, id=id)
+    produto.delete()
+    return redirect('produtos:display_produtos')

@@ -36,11 +36,11 @@
                         <a href="#" class="opcao-deletar" style="margin: 0 3px;" data-modal-id="modal-{{ produto.id }}">
                             <img height="20" src="{% static 'pacientes/imagens/excluir-icon.png' %}" alt="">
                         </a>
-                        <div class="modal-background" id="modal-{{ paciente.id }}">
+                        <div class="modal-background" id="modal-{{ produto.id }}">
                             <div class="modal-confirmar-delete">
                                 <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
                                 <div class="botoes-modal">
-                                    <a href="" class="botao-confirmar">Confirmar</a>
+                                    <a href="{% url 'produtos:deletar_produto' produto.id %}" class="botao-confirmar">Confirmar</a>
                                     <a class="botao-cancelar">Cancelar</a>
                                 </div>
                             </div>

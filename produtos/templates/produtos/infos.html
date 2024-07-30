@@ -9,18 +9,18 @@
     <a href="{% url 'produtos:editar_produto' produto.id %}" style="position: absolute; right: 100px; top:80px;">
         <img src="{% static 'pacientes/imagens/editar-icon.png' %}" height="60" alt="">
     </a>
-    <a href="#" class="opcao-deletar" data-modal-id="modal-{{ paciente.id }}" style="position: absolute; right: 30px; top:80px;">
+    <a href="#" class="opcao-deletar" data-modal-id="modal-{{ produto.id }}" style="position: absolute; right: 30px; top:80px;">
         <img src="{% static 'pacientes/imagens/excluir-icon.png' %}" height="60" alt="">
     </a>
 </div>
 
 <!-- MODAL CONFIRMACAO DE EXCLUSAO -->
 
-<div class="modal-background" id="modal-{{ paciente.id }}">
+<div class="modal-background" id="modal-{{ produto.id }}">
     <div class="modal-confirmar-delete">
         <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
         <div class="botoes-modal">
-            <a href="" class="botao-confirmar">Confirmar</a>
+            <a href="{% url 'produtos:deletar_produto' produto.id %}" class="botao-confirmar">Confirmar</a>
             <a class="botao-cancelar">Cancelar</a>
         </div>
     </div>
