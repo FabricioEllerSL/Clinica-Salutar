@@ -1,1 +1,57 @@
-fein
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div style="display: flex;">
+    <a href="{% url 'home:navegacao' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
+    <h2 class="welcome-text"><a href="{% url 'medicos:display_medicos' %}">MÉDICOS</a></h2>
+</div>
+
+<main style="flex-direction: column;">
+    <form action="" method="get" style="justify-content: center; display: flex;">
+        <input class="pesquisar-pacientes" type="text" id="search" name="q" placeholder="Pesquisar Médico...">
+        <button type="submit" class="pesquisar-button">
+            <img src="{% static 'pacientes/imagens/pesquisar-icon.png' %}" height="40" alt="">
+        </button>
+    </form>
+    
+    <a class="add-paciente-button" href="">
+        Cadastrar Médico
+    </a>
+
+    <div class="mostrar-pacientes-container">
+        {% if medicos %}
+
+            {% for medico in medicos %}
+                <div class="paciente-exibido">
+                    <h4 style="font-weight: 500;">{{ medico.nome }}</h4>
+                    <div class="icones-paciente">
+                        <a href="" style="margin: 0 3px;">
+                            <img height="20" src="{% static 'pacientes/imagens/editar-icon.png' %}" alt="">
+                        </a>
+                        <a href="" style="margin: 0 3px;">
+                            <img height="20" src="{% static 'pacientes/imagens/ver-icon.png' %}" alt="">
+                        </a>
+                        <a href="#" class="opcao-deletar" style="margin: 0 3px;" data-modal-id="modal-{{ paciente.id }}">
+                            <img height="20" src="{% static 'pacientes/imagens/excluir-icon.png' %}" alt="">
+                        </a>
+                        <div class="modal-background" id="modal-{{ paciente.id }}">
+                            <div class="modal-confirmar-delete">
+                                <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
+                                <div class="botoes-modal">
+                                    <a href="" class="botao-confirmar">Confirmar</a>
+                                    <a class="botao-cancelar">Cancelar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h4 style="font-weight: 500;">Nenhum médico cadastrado...</h4>
+        {% endif %}
+    </div>
+</main>
+
+{% endblock content %}
