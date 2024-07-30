@@ -22,7 +22,36 @@
 
     <div class="mostrar-pacientes-container">
         {% if pacientes %}
+
             {% for paciente in pacientes %}
+                <div class="paciente-exibido">
+                    <h4 style="font-weight: 500;">{{ paciente.nome }}</h4>
+                    <div class="icones-paciente">
+                        <a href="{% url 'pacientes:editar_paciente' paciente.id %}" style="margin: 0 3px;">
+                            <img height="20" src="{% static 'pacientes/imagens/editar-icon.png' %}" alt="">
+                        </a>
+                        <a href="{% url 'pacientes:infos' paciente.id %}" style="margin: 0 3px;">
+                            <img height="20" src="{% static 'pacientes/imagens/ver-icon.png' %}" alt="">
+                        </a>
+                        <a href="#" class="opcao-deletar" style="margin: 0 3px;" data-modal-id="modal-{{ paciente.id }}">
+                            <img height="20" src="{% static 'pacientes/imagens/excluir-icon.png' %}" alt="">
+                        </a>
+                        <div class="modal-background" id="modal-{{ paciente.id }}">
+                            <div class="modal-confirmar-delete">
+                                <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
+                                <div class="botoes-modal">
+                                    <a href="{% url 'pacientes:deletar_paciente' paciente.id %}" class="botao-confirmar">Confirmar</a>
+                                    <a class="botao-cancelar">Cancelar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+    
+
+
+            <!-- {% for paciente in pacientes %}
             <div class="paciente-exibido">
                 <h4 style="font-weight: 500;">{{ paciente.nome }}</h4>
                 <div class="icones-paciente">
@@ -38,8 +67,6 @@
                 </div>
             </div>
 
-            <!-- MODAL CONFIRMACAO DE EXCLUSAO -->
-
             <div class="modal-background">
                 <div class="modal-confirmar-delete">
                     <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
@@ -50,7 +77,7 @@
                 </div>
             </div>
 
-            {% endfor %}
+            {% endfor %} -->
         {% else %}
             <h4 style="font-weight: 500;">Nenhum paciente cadastrado...</h4>
         {% endif %}
