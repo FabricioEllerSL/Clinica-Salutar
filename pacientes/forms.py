@@ -1,3 +1,4 @@
+from datetime import date
 from django import forms
 from django.core.exceptions import ValidationError
 from .models import Paciente
@@ -23,11 +24,16 @@ class PacienteForm(forms.ModelForm):
             elif field_name == 'rg':
                 field.widget.attrs['class'] = 'form-input campo-rg'
 
+    def clean_data_nascimento(self):
+        data_nascimento = self.cleaned_data.get('data_nascimento')
+        if data_nascimento > date.today():
+            raise ValidationError("A data de nascimento não pode ser menor que a data atual.")
+        return data_nascimento
+
     def clean_cpf(self):
         cpf = self.cleaned_data.get('cpf')
         cpf = cpf.replace('.', '').replace('-', '')
         if not validar_cpf(cpf):
-            
             raise ValidationError('CPF inválido.')
         return cpf
     

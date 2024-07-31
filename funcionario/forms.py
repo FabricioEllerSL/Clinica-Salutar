@@ -24,6 +24,18 @@ class FuncionarioForm(forms.ModelForm):
                 field.widget.attrs['class'] = 'form-input campo-telefone'
             elif field_name == 'rg':
                 field.widget.attrs['class'] = 'form-input campo-rg'
+
+    def clean_data_nascimento(self):
+        data_nascimento = self.cleaned_data.get('data_nascimento')
+        if data_nascimento > date.today():
+            raise ValidationError("A data de nascimento não pode ser menor que a data atual.")
+        return data_nascimento
+    
+    def clean_data_admissao(self):
+        data_admissao = self.cleaned_data.get('data_admissao')
+        if data_admissao > date.today():
+            raise ValidationError("A data de admissao não pode ser menor que a data atual.")
+        return data_admissao
     
     def clean_cpf(self):
         cpf = self.cleaned_data.get('cpf')

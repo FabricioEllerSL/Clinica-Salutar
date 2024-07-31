@@ -21,7 +21,6 @@ class MedicoForm(forms.ModelForm):
         cpf = self.cleaned_data.get('cpf')
         cpf = cpf.replace('.', '').replace('-', '')
         if not validar_cpf(cpf):
-            
             raise ValidationError('CPF inválido.')
         return cpf
     
