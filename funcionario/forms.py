@@ -2,6 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from .models import Funcionario
 from pacientes.validators import validar_cpf
+from datetime import date
 
 
 class FuncionarioForm(forms.ModelForm):
@@ -30,6 +31,12 @@ class FuncionarioForm(forms.ModelForm):
         if not validar_cpf(cpf):
             raise ValidationError('CPF inválido.')
         return cpf
+    
+    def clean_data_admissao(self):
+        data_admissao = self.cleaned_data.get('data_admissao')
+        if data_admissao > date.today():
+            raise ValidationError("A data de admissão não pode ser maior que a data atual.")
+        return data_admissao
     
     def clean_rg(self):
         rg = self.cleaned_data.get('rg')

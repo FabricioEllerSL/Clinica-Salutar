@@ -85,6 +85,9 @@ def editar_funcionario(request, id):
         if form.is_valid():
             form.save()
             return redirect('funcionario:display_funcionarios')  # redirecionar para página de sucesso após edicao
+        else:
+            messages.error(request, 'As informações não foram cadastradas corretamente!')
+            return redirect('funcionario:display_funcionarios')
        
 
     context_ = {
