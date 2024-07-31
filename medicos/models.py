@@ -8,3 +8,6 @@ class Medico(models.Model):
     rg = models.CharField(max_length=20)
     numero_classe = models.CharField(max_length=20)
     profissao = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f'{self.nome}'

@@ -29,9 +29,9 @@
         </div>
         <div class="module-card">
             <img src="{% static 'home/imagens/atendimento-icon.png' %}" height="120" alt="">
-            <a href="#" class="module-card-title">ATENDIMENTOS</a>
+            <a href="{% url 'agendamentos:display_agendamentos' %}" class="module-card-title">AGENDAMENTOS</a>
             <p class="module-card-description">
-                Gerenciamento dos atendimentos marcados.
+                Gerenciamento dos agendamentos marcados.
             </p>
         </div>
     </div>
