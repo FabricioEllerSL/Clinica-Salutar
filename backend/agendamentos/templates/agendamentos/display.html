@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div style="display: flex;">
+    <a href="{% url 'home:navegacao' %}" class="return-button"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
+    <h2 class="welcome-text"><a href="{% url 'agendamentos:display_agendamentos' %}">AGENDAMENTOS</a></h2>
+</div>
+
+<main style="flex-direction: column;">
+    <form action="{% url 'agendamentos:search' %}" method="get" style="justify-content: center; display: flex;">
+        <input class="pesquisar-pacientes" type="text" id="search" name="q" placeholder="Pesquisar Agendamento...">
+        <button type="submit" class="pesquisar-button">
+            <img src="{% static 'pacientes/imagens/pesquisar-icon.png' %}" height="40" alt="">
+        </button>
+    </form>
+    
+    <a class="add-paciente-button" href="{% url 'agendamentos:cadastrar_agendamento' %}">
+        Cadastrar Agendamento
+    </a>
+
+    <div class="mostrar-pacientes-container">
+        {% if agendamentos %}
+
+            {% for agendamento in agendamentos %}
+                <div class="paciente-exibido">
+                    <h4 style="font-weight: 500;">{{ agendamento.nome_paciente }} {{ agendamento.data | date:"d/m/Y" }}</h4>
+                    <div class="icones-paciente">
+                        <a href="{% url 'agendamentos:editar_agendamento' agendamento.id %}" style="margin: 0 3px;">
+                            <img height="20" src="{% static 'pacientes/imagens/editar-icon.png' %}" alt="">
+                        </a>
+                        <a href="{% url 'agendamentos:infos' agendamento.id %}" style="margin: 0 3px;">
+                            <img height="20" src="{% static 'pacientes/imagens/ver-icon.png' %}" alt="">
+                        </a>
+                        <a href="#" class="opcao-deletar" style="margin: 0 3px;" data-modal-id="modal-{{ agendamento.id }}">
+                            <img height="20" src="{% static 'pacientes/imagens/excluir-icon.png' %}" alt="">
+                        </a>
+                        <div class="modal-background" id="modal-{{ agendamento.id }}">
+                            <div class="modal-confirmar-delete">
+                                <h2 class="texto-modal">Deseja confirmar a exclusão?</h2>
+                                <div class="botoes-modal">
+                                    <a href="{% url 'agendamentos:deletar_agendamento' agendamento.id %}" class="botao-confirmar">Confirmar</a>
+                                    <a class="botao-cancelar">Cancelar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h4 style="font-weight: 500;">Nenhum agendamento cadastrado...</h4>
+        {% endif %}
+    </div>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div style="display: flex;">
+    <a href="{% url 'agendamentos:display_agendamentos' %}" class="return-button" style="position: static; margin-right: -150px;"><img src="{% static 'home/imagens/chevron-left.png' %}" alt=""></a>
+    {% if funcionalidade == 'cadastrar' %}
+        <h2 class="welcome-text">Cadastro de Agendamento</h2>
+    {% else %}
+        <h2 class="welcome-text">Editar Agendamento</h2>
+    {% endif %}
+</div>
+
+<main>
+    <div class="cadastro-container-produtos">
+        <form method="post" style="width: 100%; ">
+            {% csrf_token %}
+                
+            {% for field in form %}
+            
+                <div style="width: 50%; margin: 5px auto;">
+                    {% if field.field.required %}
+                    <label class="cadastro-label" for="{{ field.id_for_label }}">{{ field.label }} *:</label><br>
+                    {{ field }}
+                    {% else %}
+                    <label class="cadastro-label" for="{{ field.id_for_label }}">{{ field.label }}:</label><br>
+                    {{ field }}
+                    {% endif %}
+                </div>
+
+            {% endfor %}
+            <div style="width: 95%; text-align: center; padding: 0; margin: 0;">
+                <button type="submit" class="cadastrar-button" style="width: 30%;">SALVAR</button>
+            </div>
+    
+    
+        </form>
+
+</main>
+
+<script src="{% static 'jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'jquery.mask.min.js' %}"></script>
+<script>
+    $(document).ready(function(){
+        $('.campo-cpf').mask('000.000.000-00', {reverse: true});
+        $('.campo-cep').mask('00000-000');
+        $('.campo-data').mask('00/00/0000');
+        $('.campo-telefone').mask('(00) 00000-0000');
+        $('.campo-rg').mask('00.000.000-00')
+        $('.campo-horario').mask('00:00:00')
+    });
+</script>
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}Clínica Salutar</title>
+    <link rel="stylesheet" href="{% static 'home/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'pacientes/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'produtos/css/styles.css' %}">
+    <script src="{% static 'home/js/scripts.js' %}" defer></script>
+    
+
+    <!-- Fonte do nome da empresa -->
+    {% include 'partials/font.html' %}
+</head>
+<body>
+    
+    <!-- Navbar -->
+    {% include 'partials/navbar.html' %}
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <div class="custom-alert custom-alert-success">
+                    {{ message }}
+                </div>
+            {% elif message.tags == 'error' %}
+                <div class="custom-alert custom-alert-error">
+                    {{ message }}
+                </div>
+            {% else %}
+                <div class="custom-alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    
+    <!-- Conteudo da pagina filha -->
+
+    {% endblock content %}
+    
+</body>
+</html>

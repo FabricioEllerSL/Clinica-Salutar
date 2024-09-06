@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="sliced">
+        <form class="login-form" method="POST">
+
+            {% csrf_token %}
+        
+            <h2 class="login-title">Login</h2>
+            <h4 class="login-subtitle">Entre para continuar</h4>
+
+            {% for field in form %}
+            <div class="inputs-container">
+                <label class="input-element-title" for="{{ field.id_for_label }}">{{ field.label }}*</label>
+                {{ field }}
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+
+            <button class="login-button" type="submit">Entrar</button>
+        
+        </form>
+    </div>
+    <div class="sliced">
+        <img src="{% static 'home/imagens/candlestick.png' %}" alt="" style="width: 70%; height: 100%;">
+    </div>
+</main>
+{% endblock content %}
+
+
+
+
+
+
+
+
+<!-- <div class="sliced">
+    <form class="login-form" action="{% url 'home:navegacao' %}">
+        <h2 class="login-title">Login</h2>
+        <h4 class="login-subtitle">Entre para continuar</h4>
+
+        <div class="inputs-container">
+            <label class="input-element-title" for="Nome">NOME</label>
+            <input class="input-element" type="text" id="Nome" placeholder="XXXXXX XXXXXX">
+        </div>
+        <div class="inputs-container">
+            <label class="input-element-title" for="senha">SENHA</label>
+            <input class="input-element" type="password" id="senha">
+        </div>
+
+        <input type="submit" to="" class="login-button" value="Log In">
+
+    </form>
+</div>
+<div class="sliced">
+    <img src="{% static 'home/imagens/candlestick.png' %}" alt="" style="width: 70%; height: 100%;">
+</div> -->
