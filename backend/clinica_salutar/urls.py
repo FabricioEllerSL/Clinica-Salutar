@@ -24,12 +24,15 @@ router.register(r'pacientes', PacienteViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # urls antigo frontend
+
     path('', include('home.urls')),
-    path('pacientes/', include('pacientes.urls')),
-    path('funcionario/', include('funcionario.urls')),
-    path('produtos/', include('produtos.urls')),
-    path('medicos/', include('medicos.urls')),
-    path('agendamentos/', include('agendamentos.urls')),
+    # path('pacientes/', include('pacientes.urls')),
+    # path('funcionario/', include('funcionario.urls')),
+    # path('produtos/', include('produtos.urls')),
+    # path('medicos/', include('medicos.urls')),
+    # path('agendamentos/', include('agendamentos.urls')),
 
     # urls da api
 
