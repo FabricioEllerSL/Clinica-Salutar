@@ -8,6 +8,7 @@
 // Composables
 import LandingPage from '@/components/LandingPage.vue'
 import LoginScreen from '@/components/LoginScreen.vue'
+import Navigation from '@/components/Navigation.vue'
 import { createRouter, createWebHistory } from 'vue-router/auto'
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
     path: "/login",
     name: 'Login',
     component: LoginScreen,
+  },
+  {
+    path: "/navigation",
+    name: 'Navigation',
+    component: Navigation,
   },
 ]
 

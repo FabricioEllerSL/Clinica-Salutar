@@ -5,6 +5,24 @@ export default{
     data(){
         return{
             dataAtual: new Date().toLocaleDateString(),
+            modulos: [
+                {
+                    'nome': 'PACIENTES',
+                    'descricao': 'Gerenciamento dos pacientes da clínica.'
+                },
+                {
+                    'nome': 'MÉDICOS',
+                    'descricao': 'Gerenciamento dos médicos da clínica.'
+                },
+                {
+                    'nome': 'FUNCIONÁRIOS',
+                    'descricao': 'Gerenciamento dos funcionários da clínica.'
+                },
+                {
+                    'nome': 'PRODUTOS',
+                    'descricao': 'Gerenciamento dos produtos úteis.'
+                },
+            ],
         }
     }
 }
@@ -50,11 +68,15 @@ export default{
     </v-app-bar>
 
     <v-container class="text-center">
-      <h1 class="text-h1 text-secondary font-lora font-weight-normal">Feller</h1>
-      <h1 class="text-h1 text-third font-lora font-weight-normal">Clínica</h1>
-      <p class="text-h6 my-5">Sistema de gerenciamento e controle geral</p>
-      <v-btn to="/navigation" class="bg-secondary rounded-lg w-25 pt-6 pb-6 d-flex align-center mx-auto text-h6">LOGIN</v-btn>
-
+        <v-row>
+            <v-col v-for="modulo in modulos" class="d-flex flex-column align-center justify-center">
+                <v-card height="220" width="250" class=" text-center card-modulo rounded-xl">
+                    <h2 class="text-secondary mt-7">{{ modulo.nome }}</h2>
+                    <p class="mx-6 text-subtitle-1 font-weight-medium my-5">{{ modulo.descricao }}</p>
+                    <v-btn class="rounded-pill bg-secondary">Acessar</v-btn>
+                </v-card>
+            </v-col>
+        </v-row>
     </v-container>
   </v-container>
 </template>
